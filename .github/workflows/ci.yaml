@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        example: [src/main.cpp, test/test_main.cpp]
+        example: [src/main.cpp, test/testMain.cpp]
 
     steps:
       - uses: actions/checkout@v4
