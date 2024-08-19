@@ -1,13 +1,11 @@
 name: PlatformIO CI
-
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        example: [path/to/test/file.c, examples/file.ino, path/to/test/directory]
+        example: [src/main.cpp, test/test_main.cpp]
 
     steps:
       - uses: actions/checkout@v4
@@ -24,6 +22,6 @@ jobs:
         run: pip install --upgrade platformio
 
       - name: Build PlatformIO examples
-        run: pio ci --board=<ID_1> --board=<ID_2> --board=<ID_N>
+        run: pio ci --board=esp32dev
         env:
           PLATFORMIO_CI_SRC: ${{ matrix.example }}
